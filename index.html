@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Place Red Dot</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('click', function(event) {
+            // Get the click coordinates
+            const x = event.clientX;
+            const y = event.clientY;
+
+            // Create a new div element for the dot
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+
+            // Append the dot to the body
+            document.body.appendChild(dot);
+        });
+    </script>
+</body>
+</html>
